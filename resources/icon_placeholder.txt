@@ -1,0 +1,3 @@
+# Icon placeholder
+# Replace this with actual icon.ico file
+# You can create an icon from: https://www.icoconverter.com/

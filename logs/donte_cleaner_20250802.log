@@ -1,0 +1,142 @@
+2025-08-02 11:32:51,408 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 11:32:56,264 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 11:32:56,384 - EmulatorOptimizer - INFO - Auto-detected LDPlayer: C:\LDPlayer\LDPlayer9\dnplayer.exe
+2025-08-02 11:32:56,385 - EmulatorOptimizer - INFO - Emulator paths saved to config
+2025-08-02 11:33:36,347 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 11:33:39,009 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 11:33:39,066 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 11:34:58,590 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 11:35:01,581 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 11:35:01,642 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 11:39:29,658 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 11:39:45,854 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 11:39:48,466 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 11:39:48,608 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 11:40:19,488 - AntivirusScanner - INFO - Starting directory scan: C:\Users\AnaPC/Desktop
+2025-08-02 12:05:45,668 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 12:05:49,960 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 12:05:50,072 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 12:06:30,100 - AntivirusScanner - INFO - Starting directory scan: C:\Users\AnaPC/Desktop
+2025-08-02 12:28:28,388 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 12:38:03,316 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 12:46:03,448 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 12:46:06,300 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 12:46:10,001 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 12:47:41,978 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 12:47:45,048 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 12:47:48,760 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 12:51:30,417 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 12:51:33,035 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 12:51:36,766 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 12:51:42,287 - WindowsOptimizer - ERROR - Service disable operation failed: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+2025-08-02 12:51:44,568 - WindowsOptimizer - INFO - Visual effects disabled
+2025-08-02 12:51:57,134 - WindowsOptimizer - INFO - Temp files cleaned: 449.34 MB
+2025-08-02 12:52:00,787 - WindowsOptimizer - INFO - Power plan set to high performance
+2025-08-02 12:52:03,104 - WindowsOptimizer - INFO - Memory optimization completed. Available: 21.86 GB
+2025-08-02 12:52:19,186 - AntivirusScanner - INFO - Starting directory scan: C:\Users\AnaPC/Desktop
+2025-08-02 12:52:23,035 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 12:52:25,748 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 12:52:29,486 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 12:52:41,710 - AntivirusScanner - INFO - Starting directory scan: C:\Users\AnaPC/Desktop
+2025-08-02 12:52:41,868 - WindowsOptimizer - INFO - Memory optimization completed. Available: 21.81 GB
+2025-08-02 12:52:46,207 - WindowsOptimizer - INFO - Temp files cleaned: 0.00 MB
+2025-08-02 12:52:52,390 - AntivirusScanner - INFO - Starting directory scan: C:\Users\AnaPC/Desktop
+2025-08-02 12:53:04,881 - AntivirusScanner - INFO - Starting directory scan: C:\Users\AnaPC/Desktop
+2025-08-02 12:53:09,399 - AntivirusScanner - INFO - Starting directory scan: C:/Users/AnaPC/Downloads/CCleaner6
+2025-08-02 12:53:11,199 - AntivirusScanner - ERROR - Error calculating hash for C:/Users/AnaPC/Downloads/CCleaner6\patch.rar: [Errno 22] Invalid argument: 'C:/Users/AnaPC/Downloads/CCleaner6\\patch.rar'
+2025-08-02 12:53:11,259 - AntivirusScanner - ERROR - Error calculating hash for C:/Users/AnaPC/Downloads/CCleaner6\patch\patch.exe: [Errno 22] Invalid argument: 'C:/Users/AnaPC/Downloads/CCleaner6\\patch\\patch.exe'
+2025-08-02 12:53:11,265 - AntivirusScanner - INFO - Directory scan completed. Found 0 threats
+2025-08-02 13:29:40,583 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 13:33:57,075 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 13:34:03,191 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 13:34:07,023 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 13:34:17,647 - EnhancedAntivirusScanner - INFO - Starting enhanced directory scan: C:\Users\AnaPC/Desktop
+2025-08-02 13:34:24,626 - AntivirusScanner - INFO - Starting directory scan: C:/Users/AnaPC/Downloads/CCleaner6
+2025-08-02 13:34:24,830 - AntivirusScanner - INFO - Directory scan completed. Found 0 threats
+2025-08-02 13:34:30,413 - EnhancedAntivirusScanner - INFO - Enhanced scan completed. Scanned 1000 files, found 51 threats
+2025-08-02 13:34:30,501 - EnhancedAntivirusScanner - INFO - Starting enhanced directory scan: C:\Users\AnaPC/Downloads
+2025-08-02 13:34:32,155 - AntivirusScanner - INFO - Starting directory scan: C:/Users/AnaPC/Downloads/SHAREit/RAILGRADE [FitGirl Repack]
+2025-08-02 13:34:32,225 - AntivirusScanner - INFO - Skipping large file: C:\Users\AnaPC\Downloads\SHAREit\RAILGRADE [FitGirl Repack]\fg-01.bin (2222235142 bytes)
+2025-08-02 13:34:32,409 - EnhancedAntivirusScanner - INFO - Skipping large file: C:\Users\AnaPC\Downloads\SHAREit\RAILGRADE [FitGirl Repack]\fg-01.bin (2222235142 bytes)
+2025-08-02 13:34:33,023 - AntivirusScanner - INFO - Skipping large file: C:\Users\AnaPC\Downloads\SHAREit\RAILGRADE [FitGirl Repack]\fg-optional-european-intros.bin (278507753 bytes)
+2025-08-02 13:34:33,024 - AntivirusScanner - INFO - Skipping large file: C:\Users\AnaPC\Downloads\SHAREit\RAILGRADE [FitGirl Repack]\fg-optional-oriental-intros.bin (124454574 bytes)
+2025-08-02 13:34:33,307 - AntivirusScanner - INFO - Directory scan completed. Found 0 threats
+2025-08-02 13:34:34,781 - EnhancedAntivirusScanner - INFO - Enhanced scan completed. Scanned 42 files, found 12 threats
+2025-08-02 13:34:34,782 - EnhancedAntivirusScanner - INFO - Starting enhanced directory scan: C:\Users\AnaPC/Documents
+2025-08-02 13:34:41,401 - AntivirusScanner - INFO - Starting directory scan: C:\Users\AnaPC/Desktop
+2025-08-02 13:34:41,402 - AntivirusScanner - INFO - Skipping large file: C:\Users\AnaPC\Desktop\3.mp3 (127474344 bytes)
+2025-08-02 13:34:57,903 - EnhancedAntivirusScanner - INFO - Enhanced scan completed. Scanned 1000 files, found 37 threats
+2025-08-02 13:34:57,905 - EnhancedAntivirusScanner - INFO - Starting enhanced directory scan: C:\Users\AnaPC\AppData\Local\Temp
+2025-08-02 13:34:58,007 - EnhancedAntivirusScanner - DEBUG - Cannot access file C:\Users\AnaPC\AppData\Local\Temp\5dd7f7ad-9726-4214-b730-3453d2070e68.tmp: [Errno 13] Permission denied: 'C:\\Users\\AnaPC\\AppData\\Local\\Temp\\5dd7f7ad-9726-4214-b730-3453d2070e68.tmp'
+2025-08-02 13:34:58,008 - EnhancedAntivirusScanner - DEBUG - Cannot access file C:\Users\AnaPC\AppData\Local\Temp\9f7398b9-b91e-4627-8de9-a25a7b282d8d.tmp: [Errno 13] Permission denied: 'C:\\Users\\AnaPC\\AppData\\Local\\Temp\\9f7398b9-b91e-4627-8de9-a25a7b282d8d.tmp'
+2025-08-02 13:34:58,032 - EnhancedAntivirusScanner - INFO - Enhanced scan completed. Scanned 43 files, found 39 threats
+2025-08-02 13:34:58,033 - EnhancedAntivirusScanner - INFO - Starting enhanced directory scan: C:\Users\AnaPC\AppData\Roaming
+2025-08-02 13:35:03,163 - EnhancedAntivirusScanner - DEBUG - Cannot access file C:\Users\AnaPC\AppData\Roaming\Code\Cache\Cache_Data\data_0: [Errno 13] Permission denied: 'C:\\Users\\AnaPC\\AppData\\Roaming\\Code\\Cache\\Cache_Data\\data_0'
+2025-08-02 13:35:03,164 - EnhancedAntivirusScanner - DEBUG - Cannot access file C:\Users\AnaPC\AppData\Roaming\Code\Cache\Cache_Data\data_1: [Errno 13] Permission denied: 'C:\\Users\\AnaPC\\AppData\\Roaming\\Code\\Cache\\Cache_Data\\data_1'
+2025-08-02 13:35:03,172 - EnhancedAntivirusScanner - DEBUG - Cannot access file C:\Users\AnaPC\AppData\Roaming\Code\Cache\Cache_Data\data_2: [Errno 13] Permission denied: 'C:\\Users\\AnaPC\\AppData\\Roaming\\Code\\Cache\\Cache_Data\\data_2'
+2025-08-02 13:35:03,173 - EnhancedAntivirusScanner - DEBUG - Cannot access file C:\Users\AnaPC\AppData\Roaming\Code\Cache\Cache_Data\data_3: [Errno 13] Permission denied: 'C:\\Users\\AnaPC\\AppData\\Roaming\\Code\\Cache\\Cache_Data\\data_3'
+2025-08-02 13:35:06,081 - EnhancedAntivirusScanner - DEBUG - Cannot access file C:\Users\AnaPC\AppData\Roaming\Code\Cache\Cache_Data\index: [Errno 13] Permission denied: 'C:\\Users\\AnaPC\\AppData\\Roaming\\Code\\Cache\\Cache_Data\\index'
+2025-08-02 13:35:11,117 - EnhancedAntivirusScanner - DEBUG - Cannot access file C:\Users\AnaPC\AppData\Roaming\Code\DawnGraphiteCache\data_0: [Errno 13] Permission denied: 'C:\\Users\\AnaPC\\AppData\\Roaming\\Code\\DawnGraphiteCache\\data_0'
+2025-08-02 13:35:11,118 - EnhancedAntivirusScanner - DEBUG - Cannot access file C:\Users\AnaPC\AppData\Roaming\Code\DawnGraphiteCache\data_1: [Errno 13] Permission denied: 'C:\\Users\\AnaPC\\AppData\\Roaming\\Code\\DawnGraphiteCache\\data_1'
+2025-08-02 13:35:11,272 - EnhancedAntivirusScanner - INFO - Enhanced scan completed. Scanned 1000 files, found 142 threats
+2025-08-02 14:39:49,978 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 14:39:53,848 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 14:39:57,667 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 14:46:07,599 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 14:46:24,796 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 14:46:28,820 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 15:10:18,442 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 15:10:22,233 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 15:10:26,086 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 15:40:34,908 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 15:40:39,463 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 15:40:43,311 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 15:40:44,811 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:40:44,840 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:41:56,779 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:41:56,780 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:41:56,787 - WindowsOptimizer - INFO - Memory optimization completed. Available: 18.28 GB
+2025-08-02 15:41:59,509 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:41:59,509 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:42:00,758 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:42:00,758 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:48:29,710 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 15:48:33,908 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 15:48:37,755 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 15:48:39,549 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:48:39,582 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:54:08,559 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 15:54:14,548 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 15:54:18,389 - EmulatorOptimizer - INFO - Emulator paths loaded from config
+2025-08-02 15:54:19,869 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:54:19,900 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:54:30,288 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:54:32,493 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:54:34,037 - WindowsOptimizer - INFO - Memory optimization completed. Available: 17.75 GB
+2025-08-02 15:54:34,038 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:54:38,293 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:54:38,960 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:54:38,961 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:54:45,635 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:54:45,673 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:54:46,062 - WindowsOptimizer - INFO - Temp files cleaned: 0.02 MB
+2025-08-02 15:54:48,671 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 15:54:48,672 - MainWindow - ERROR - Activity logging error: 'ModernMainWindow' object has no attribute 'smart_notifications'
+2025-08-02 16:09:01,086 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 16:09:04,310 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 16:09:58,744 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 16:10:01,382 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 16:20:02,937 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 16:20:04,498 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 16:20:06,762 - gui.modern_main_window - INFO - Modern DonTe Cleaner v3.0 initialized
+2025-08-02 16:32:56,081 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 16:33:00,045 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 16:33:02,188 - gui.modern_main_window - INFO - Modern DonTe Cleaner v3.0 initialized
+2025-08-02 17:56:36,904 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 17:56:39,358 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 17:56:41,453 - gui.modern_main_window - INFO - Modern DonTe Cleaner v3.0 initialized
+2025-08-02 18:06:33,406 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 18:06:35,626 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 18:06:38,147 - gui.modern_main_window - INFO - Modern DonTe Cleaner v3.0 initialized
+2025-08-02 18:51:20,617 - DonTe Cleaner - INFO - DonTe Cleaner başlatıldı
+2025-08-02 18:51:22,640 - gui.modern_main_window - INFO - Modern DonTe Cleaner v3.0 initialized
