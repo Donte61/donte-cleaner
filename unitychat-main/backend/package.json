@@ -1,0 +1,16 @@
+{
+  "name": "unitychat-backend",
+  "version": "1.0.0",
+  "description": "Backend for UnityChat application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mssql": "^11.0.1"
+  }
+}

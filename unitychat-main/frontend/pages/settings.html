@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnityChat - Ayarlar</title>
+    <link rel="stylesheet" href="../styles/settings.css">
+</head>
+<body>
+    <div class="settings-container">
+        <h1>Ayarlar</h1>
+        <form id="settings-form">
+            <div class="form-group">
+                <label for="theme">Tema:</label>
+                <select id="theme" name="theme">
+                    <option value="light">Açık</option>
+                    <option value="dark">Karanlık</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="font-size">Yazı Boyutu:</label>
+                <input type="range" id="font-size" name="font-size" min="12" max="24" value="16">
+            </div>
+            <div class="form-group">
+                <label for="display-name">Görünen Ad:</label>
+                <input type="text" id="display-name" name="display-name">
+            </div>
+            <div class="form-group">
+                <label for="custom-status">Özel Durum:</label>
+                <input type="text" id="custom-status" name="custom-status">
+            </div>
+            <div class="form-group">
+                <label for="notifications">Bildirimler:</label>
+                <input type="checkbox" id="notifications" name="notifications">
+            </div>
+            <button type="submit">Kaydet</button>
+        </form>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/settings.js"></script>
+</body>
+</html>

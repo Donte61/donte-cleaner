@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnityChat - Dashboard</title>
+    <link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="sidebar">
+            <div class="user-info">
+                <img src="" alt="" id="user-avatar" class="avatar">
+                <div class="user-details">
+                    <h3 id="user-displayname"></h3>
+                    <span id="user-status" class="status">Çevrimiçi</span>
+                </div>
+            </div>
+            
+            <!-- Yeni XP Kartı -->
+            <div class="xp-card">
+                <div class="xp-header">
+                    <span class="current-tag"></span>
+                    <span class="current-level">Level 1</span>
+                </div>
+                <div class="xp-progress-container">
+                    <div class="xp-progress-bar">
+                        <div class="xp-progress"></div>
+                    </div>
+                    <div class="xp-stats">
+                        <span class="current-xp">0</span>
+                        <span class="next-level-xp">/ 100 XP</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu">
+                <button class="active" onclick="showTab('chat')">Mesajlar</button>
+                <div id="admin-menu">
+                    <h3 class="menu-title">Admin Kontrolleri</h3>
+                    <button onclick="showBanList()">
+                        <i>🚫</i> Banlı Kullanıcılar
+                    </button>
+                    <button onclick="showMutedList()">
+                        <i>🔇</i> Susturulan Kullanıcılar
+                    </button>
+                    <button onclick="showUserList()">
+                        <i>👥</i> Tüm Kullanıcılar
+                    </button>
+                    <button onclick="showAnnouncementForm()">
+                        <i>📢</i> Duyuru Yap
+                    </button>
+                    <button onclick="clearAllMessages()">
+                        <i>🗑️</i> Tüm Mesajları Temizle
+                    </button>
+                </div>
+                <button onclick="showTab('settings')">Ayarlar</button>
+                <button id="logout-btn">Çıkış Yap</button>
+            </div>
+
+            <div class="guilds">
+                <h3>Guilds</h3>
+                <div id="guild-list">
+                    <!-- Guilds will be inserted here -->
+                </div>
+                <button onclick="showCreateGuildForm()">Create Guild</button>
+            </div>
+        </nav>
+
+        <main class="chat-area" id="chat-tab">
+            <div class="chat-header">
+                <div class="chat-header-inner">
+                    <h2>Genel Sohbet</h2>
+                    <span class="online-count">0 çevrimiçi</span>
+                </div>
+            </div>
+
+            <div class="announcements-wrapper">
+                <div class="announcements-container" id="announcements" style="display: none;">
+                    <!-- Announcements will be inserted here -->
+                </div>
+            </div>
+
+            <div class="messages" id="messages">
+                <div class="messages-container">
+                    <!-- Messages will be inserted here -->
+                </div>
+            </div>
+
+            <div class="message-input">
+                <button id="emoji-button" class="emoji-button">😊</button>
+                <input type="text" id="message-text" placeholder="Mesajınızı yazın...">
+                <button id="send-message">Gönder</button>
+            </div>
+
+            <!-- Emoji picker container -->
+            <div id="emoji-picker" class="emoji-picker">
+                <div class="emoji-categories">
+                    <button data-category="smileys">😊</button>
+                    <button data-category="gestures">👍</button>
+                    <button data-category="hearts">❤️</button>
+                </div>
+                <div class="emoji-list">
+                    <!-- Emojiler JavaScript ile doldurulacak -->
+                </div>
+                <div class="emoji-shortcuts">
+                    <p>Kısayollar:</p>
+                    <div class="shortcut-list">
+                        <span>:) → 😊</span>
+                        <span>:D → 😀</span>
+                        <span>:( → ☹️</span>
+                        <span>;) → 😉</span>
+                        <span>:p → 😛</span>
+                        <span><3 → ❤️</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guild-chat" id="guild-chat" style="display: none;">
+                <div class="chat-header">
+                    <div class="chat-header-inner">
+                        <h2 id="guild-chat-title">Guild Chat</h2>
+                        <div class="guild-header-info">
+                            <span class="member-count">0 members</span>
+                            <span class="guild-creator">Created by: </span>
+                            <span class="guild-created-at">Created at: </span>
+                            <button class="invite-user-btn" onclick="inviteUserToGuild()">Invite User</button>
+                            <button class="leave-guild-btn" onclick="leaveGuild()">Leave Guild</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="messages" id="guild-messages">
+                    <div class="messages-container">
+                        <!-- Guild messages will be inserted here -->
+                    </div>
+                </div>
+                <div class="message-input">
+                    <button id="guild-emoji-button" class="emoji-button">😊</button>
+                    <input type="text" id="guild-message-text" placeholder="Type your message...">
+                    <button id="send-guild-message">Send</button>
+                </div>
+            </div>
+        </main>
+
+        <main class="settings-area" id="settings-tab" style="display: none;">
+            <div class="settings-container">
+                <h1>Ayarlar</h1>
+                <form id="settings-form">
+                    <div class="form-group">
+                        <label for="theme">Tema:</label>
+                        <select id="theme" name="theme">
+                            <option value="light">Açık</option>
+                            <option value="dark">Karanlık</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="font-size">Yazı Boyutu:</label>
+                        <input type="range" id="font-size" name="font-size" min="12" max="24" value="16">
+                    </div>
+                    <div class="form-group">
+                        <label for="display-name">Görünen Ad:</label>
+                        <input type="text" id="display-name" name="display-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="custom-status">Özel Durum:</label>
+                        <input type="text" id="custom-status" name="custom-status">
+                    </div>
+                    <div class="form-group">
+                        <label for="notifications">Bildirimler:</label>
+                        <input type="checkbox" id="notifications" name="notifications">
+                    </div>
+                    <button type="submit">Kaydet</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Guild creation modal -->
+    <div id="create-guild-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Create Guild</h2>
+            <form id="create-guild-form">
+                <div class="form-group">
+                    <label for="guild-name">Guild Name:</label>
+                    <input type="text" id="guild-name" name="guild-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="guild-description">Description:</label>
+                    <textarea id="guild-description" name="guild-description" required></textarea>
+                </div>
+                <button type="submit">Create</button>
+                <button type="button" onclick="closeCreateGuildForm()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/admin.js"></script>
+    <script src="../js/chat.js"></script>
+    <script src="../js/settings.js"></script>
+    <script>
+        function showTab(tab) {
+            document.getElementById('chat-tab').style.display = tab === 'chat' ? 'block' : 'none';
+            document.getElementById('settings-tab').style.display = tab === 'settings' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
