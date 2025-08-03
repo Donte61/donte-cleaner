@@ -4404,19 +4404,19 @@ Platform: Windows 10/11"""
             buttons_frame = tk.Frame(main_frame, bg="#1a1a2e")
             buttons_frame.pack(fill="x")
             
-            # GitHub button
-            def open_github():
+            # Discord button
+            def open_discord():
                 import webbrowser
-                webbrowser.open("https://github.com/Donte61/donte-cleaner")
+                webbrowser.open("https://discord.gg/yt2zGwtHrb")
             
-            github_btn = tk.Button(buttons_frame,
-                                  text="📁 GitHub",
-                                  command=open_github,
-                                  bg="#333366", fg="white",
-                                  font=("Segoe UI", 10),
-                                  pady=8, relief="flat",
-                                  cursor="hand2")
-            github_btn.pack(side="left", padx=(0, 10))
+            discord_btn = tk.Button(buttons_frame,
+                                   text="� Discord",
+                                   command=open_discord,
+                                   bg="#5865F2", fg="white",
+                                   font=("Segoe UI", 10),
+                                   pady=8, relief="flat",
+                                   cursor="hand2")
+            discord_btn.pack(side="left", padx=(0, 10))
             
             # Support button
             support_btn2 = tk.Button(buttons_frame,

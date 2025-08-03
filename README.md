@@ -4,9 +4,10 @@
 
 DonTe Cleaner is a comprehensive, professional-grade Windows optimization tool that combines system cleaning, virus scanning, gaming optimization, and advanced performance tuning in a modern, user-friendly interface.
 
-## ✨ Key Features
+## ✨ Key Features## 📞 İletişim
 
-### 🛡️ Advanced Antivirus Protection
+- 💬 Discord: [DonTe Community](https://discord.gg/yt2zGwtHrb)
+- ☕ Bağış: [buymeacoffee.com/donte61](https://buymeacoffee.com/donte61)# 🛡️ Advanced Antivirus Protection
 - **Real-time virus scanning** with signature-based and behavioral detection
 - **Custom scan modes**: Quick, Full, and Custom directory scanning
 - **Quarantine system** with automatic threat isolation
