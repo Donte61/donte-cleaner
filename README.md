@@ -338,8 +338,25 @@ Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
 
 **⭐ Projeyi beğendiyseniz yıldız vermeyi unutmayın!**
 
-## 📞 İletişim
+## ☕ Bağış Yap
+
+Bu proje size yardımcı oldu mu? Geliştirme sürecini desteklemek için bana bir kahve ısmarlamayı düşünür müsünüz? 
+
+Her bağış, bu projeyi daha da geliştirmeme ve yeni özellikler eklememe yardımcı oluyor. Sizin desteğinizle DonTe Cleaner'ı daha güçlü hale getirebilirim! �
+
+[![Buy Me A Coffee](https://img.shields.io/badge/☕-Buy%20me%20a%20coffee-orange.svg?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/donte61)
+
+**🎯 Bağışlarınız sayesinde:**
+- 🚀 Yeni özellikler daha hızlı geliştiriliyor
+- 🛠️ Hatalar daha çabuk düzeltiliyor
+- 📚 Daha detaylı dokümantasyon hazırlanıyor
+- 🎨 Arayüz tasarımı sürekli iyileştiriliyor
+
+**Teşekkürler! Her desteğiniz çok değerli** ❤️
+
+## �📞 İletişim
 
 - 📧 E-posta: [email@example.com](mailto:email@example.com)
 - 🌐 Website: [https://donte-cleaner.com](https://donte-cleaner.com)
 - 💬 Discord: [DonTe Community](https://discord.gg/donte)
+- ☕ Bağış: [buymeacoffee.com/donte61](https://buymeacoffee.com/donte61)

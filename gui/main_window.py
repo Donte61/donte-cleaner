@@ -1406,10 +1406,31 @@ Admin Rights: {'Yes' if self.is_admin else 'No'}
         """Create application header"""
         header_frame = ttk.Frame(self.main_frame, style="Modern.TFrame")
         
-        # Title and subtitle
-        ttk.Label(header_frame, text="DonTe Cleaner", style="Title.TLabel").pack(anchor="w")
-        ttk.Label(header_frame, text="Professional Windows Optimization & Security Tool", 
-                 style="Subtitle.TLabel").pack(anchor="w", pady=(0, 20))
+        # Create top section with title and support button
+        top_section = ttk.Frame(header_frame, style="Modern.TFrame")
+        top_section.pack(fill="x", pady=(0, 10))
+        
+        # Left side - Title and subtitle
+        title_frame = ttk.Frame(top_section, style="Modern.TFrame")
+        title_frame.pack(side="left", fill="both", expand=True)
+        
+        ttk.Label(title_frame, text="DonTe Cleaner", style="Title.TLabel").pack(anchor="w")
+        ttk.Label(title_frame, text="Professional Windows Optimization & Security Tool", 
+                 style="Subtitle.TLabel").pack(anchor="w")
+        
+        # Right side - Support buttons
+        support_frame = ttk.Frame(top_section, style="Modern.TFrame")
+        support_frame.pack(side="right", padx=(10, 0))
+        
+        # Support the developer button
+        support_btn = ttk.Button(support_frame, text="☕ Geliştiriciye Destek",
+                               command=self.show_support_dialog, style="Accent.TButton")
+        support_btn.pack(side="right", padx=(5, 0))
+        
+        # About button
+        about_btn = ttk.Button(support_frame, text="ℹ️ Hakkında",
+                              command=self.show_about_dialog, style="Modern.TButton")
+        about_btn.pack(side="right", padx=(5, 0))
         
         self.header_frame = header_frame
     
@@ -4226,18 +4247,208 @@ Admin Rights: {'Yes' if self.is_admin else 'No'}
             except:
                 pass
             
-            # Reduce automatic update frequency
+            # Disable system sounds for performance
             try:
                 import winreg
-                key = winreg.CreateKey(winreg.HKEY_LOCAL_MACHINE, 
-                                     r"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU")
-                winreg.SetValueEx(key, "AUOptions", 0, winreg.REG_DWORD, 2)  # Notify before download
+                key = winreg.CreateKey(winreg.HKEY_CURRENT_USER, r"AppEvents\Schemes")
+                winreg.SetValueEx(key, "", 0, winreg.REG_SZ, ".None")
                 winreg.CloseKey(key)
                 operations_completed += 1
             except:
                 pass
             
-            return True, f"Auto protection reduced: {operations_completed}/{total_operations} features modified"
+            return True, f"Auto protection adjusted: {operations_completed}/{total_operations} features modified"
             
         except Exception as e:
-            return False, f"Auto protection modification failed: {str(e)}"
+            return False, f"Auto protection adjustment failed: {str(e)}"
+    
+    def show_support_dialog(self):
+        """Show support/donation dialog"""
+        try:
+            import webbrowser
+            from tkinter import messagebox
+            
+            # Create custom dialog
+            dialog = tk.Toplevel(self.root)
+            dialog.title("☕ Geliştiriciye Destek Ol")
+            dialog.geometry("480x400")
+            dialog.resizable(False, False)
+            dialog.configure(bg="#1a1a2e")
+            
+            # Center the dialog
+            dialog.transient(self.root)
+            dialog.grab_set()
+            
+            # Main frame
+            main_frame = tk.Frame(dialog, bg="#1a1a2e", padx=20, pady=20)
+            main_frame.pack(fill="both", expand=True)
+            
+            # Title
+            title_label = tk.Label(main_frame, 
+                                  text="☕ Geliştiriciye Destek Ol",
+                                  font=("Segoe UI", 18, "bold"),
+                                  fg="#00ffff", bg="#1a1a2e")
+            title_label.pack(pady=(0, 20))
+            
+            # Message
+            message = """Bu program size yardımcı olduysa, geliştiriciye bir kahve ısmarlamayı düşünür müsünüz? 
+
+🎯 Desteğiniz sayesinde:
+• Yeni özellikler daha hızlı geliştiriliyor
+• Hatalar daha çabuk düzeltiliyor  
+• Program sürekli iyileştiriliyor
+• Daha iyi bir kullanıcı deneyimi sunuluyor
+
+Her desteğiniz çok değerli ve projenin geleceği için önemli! ❤️
+
+Teşekkürler!"""
+            
+            message_label = tk.Label(main_frame, text=message,
+                                   font=("Segoe UI", 11),
+                                   fg="white", bg="#1a1a2e",
+                                   justify="left", wraplength=420)
+            message_label.pack(pady=(0, 30))
+            
+            # Buttons frame
+            buttons_frame = tk.Frame(main_frame, bg="#1a1a2e")
+            buttons_frame.pack(fill="x")
+            
+            # Support button
+            def open_support_link():
+                webbrowser.open("https://buymeacoffee.com/donte61")
+                dialog.destroy()
+            
+            support_btn = tk.Button(buttons_frame, 
+                                   text="☕ Buy Me a Coffee",
+                                   command=open_support_link,
+                                   bg="#ff813f", fg="white",
+                                   font=("Segoe UI", 12, "bold"),
+                                   pady=10, relief="flat",
+                                   cursor="hand2")
+            support_btn.pack(side="left", fill="x", expand=True, padx=(0, 10))
+            
+            # Maybe later button
+            maybe_btn = tk.Button(buttons_frame,
+                                 text="Belki Sonra",
+                                 command=dialog.destroy,
+                                 bg="#555577", fg="white",
+                                 font=("Segoe UI", 11),
+                                 pady=10, relief="flat")
+            maybe_btn.pack(side="right", padx=(10, 0))
+            
+            # Center dialog on screen
+            dialog.update_idletasks()
+            x = (dialog.winfo_screenwidth() // 2) - (dialog.winfo_width() // 2)
+            y = (dialog.winfo_screenheight() // 2) - (dialog.winfo_height() // 2)
+            dialog.geometry(f"+{x}+{y}")
+            
+        except Exception as e:
+            print(f"Support dialog error: {e}")
+            messagebox.showinfo("Destek", 
+                               "Geliştiriciye destek olmak için:\nhttps://buymeacoffee.com/donte61\n\nTeşekkürler! ❤️")
+    
+    def show_about_dialog(self):
+        """Show about dialog"""
+        try:
+            from tkinter import messagebox
+            
+            # Create custom about dialog
+            dialog = tk.Toplevel(self.root)
+            dialog.title("ℹ️ DonTe Cleaner Hakkında")
+            dialog.geometry("450x350")
+            dialog.resizable(False, False)
+            dialog.configure(bg="#1a1a2e")
+            
+            # Center the dialog
+            dialog.transient(self.root)
+            dialog.grab_set()
+            
+            # Main frame
+            main_frame = tk.Frame(dialog, bg="#1a1a2e", padx=20, pady=20)
+            main_frame.pack(fill="both", expand=True)
+            
+            # Logo/Title
+            title_label = tk.Label(main_frame,
+                                  text="🚀 DonTe Cleaner v3.0",
+                                  font=("Segoe UI", 20, "bold"),
+                                  fg="#00ffff", bg="#1a1a2e")
+            title_label.pack(pady=(0, 10))
+            
+            # Subtitle
+            subtitle_label = tk.Label(main_frame,
+                                     text="Professional Windows Optimization Tool",
+                                     font=("Segoe UI", 12, "italic"),
+                                     fg="#888888", bg="#1a1a2e")
+            subtitle_label.pack(pady=(0, 20))
+            
+            # Features
+            features_text = """✨ Ana Özellikler:
+• 🛡️ Gelişmiş Antivirus Tarama
+• ⚡ Sistem Optimizasyonu  
+• 🎮 Gaming Mode Optimizasyonu
+• 💾 RAM ve Disk Temizliği
+• 🔧 Windows Ayarları Yönetimi
+• 📊 Performans İzleme
+
+Geliştirici: DonTe
+Versiyon: 3.0.0
+Platform: Windows 10/11"""
+            
+            features_label = tk.Label(main_frame, text=features_text,
+                                     font=("Segoe UI", 10),
+                                     fg="white", bg="#1a1a2e",
+                                     justify="left")
+            features_label.pack(pady=(0, 20))
+            
+            # Buttons
+            buttons_frame = tk.Frame(main_frame, bg="#1a1a2e")
+            buttons_frame.pack(fill="x")
+            
+            # GitHub button
+            def open_github():
+                import webbrowser
+                webbrowser.open("https://github.com/Donte61/donte-cleaner")
+            
+            github_btn = tk.Button(buttons_frame,
+                                  text="📁 GitHub",
+                                  command=open_github,
+                                  bg="#333366", fg="white",
+                                  font=("Segoe UI", 10),
+                                  pady=8, relief="flat",
+                                  cursor="hand2")
+            github_btn.pack(side="left", padx=(0, 10))
+            
+            # Support button
+            support_btn2 = tk.Button(buttons_frame,
+                                    text="☕ Destek",
+                                    command=self.show_support_dialog,
+                                    bg="#ff813f", fg="white",
+                                    font=("Segoe UI", 10),
+                                    pady=8, relief="flat",
+                                    cursor="hand2")
+            support_btn2.pack(side="left", padx=(0, 10))
+            
+            # Close button
+            close_btn = tk.Button(buttons_frame,
+                                 text="Kapat",
+                                 command=dialog.destroy,
+                                 bg="#555577", fg="white",
+                                 font=("Segoe UI", 10),
+                                 pady=8, relief="flat")
+            close_btn.pack(side="right")
+            
+            # Center dialog
+            dialog.update_idletasks()
+            x = (dialog.winfo_screenwidth() // 2) - (dialog.winfo_width() // 2)
+            y = (dialog.winfo_screenheight() // 2) - (dialog.winfo_height() // 2)
+            dialog.geometry(f"+{x}+{y}")
+            
+        except Exception as e:
+            print(f"About dialog error: {e}")
+            messagebox.showinfo("Hakkında", 
+                               "DonTe Cleaner v3.0\nProfessional Windows Optimization Tool\n\nGeliştirici: DonTe")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = ModernMainWindow(root)
+    root.mainloop()
