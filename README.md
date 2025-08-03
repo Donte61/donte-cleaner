@@ -357,7 +357,6 @@ Her bağış, bu projeyi daha da geliştirmeme ve yeni özellikler eklememe yard
 
 ## �📞 İletişim
 
-- 📧 E-posta: [email@example.com](mailto:email@example.com)
-- 🌐 Website: [https://donte-cleaner.com](https://donte-cleaner.com)
+- 🌐 Website: [I Am](https://polychaser.com/)
 - 💬 Discord: [DonTe Community](https://discord.gg/donte)
 - ☕ Bağış: [buymeacoffee.com/donte61](https://buymeacoffee.com/donte61)
