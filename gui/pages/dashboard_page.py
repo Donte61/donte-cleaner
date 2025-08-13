@@ -17,6 +17,7 @@ class DashboardPage:
         self.parent = parent
         self.main_window = main_window
         self.colors = main_window.colors
+        self.monitoring_active = True
         
         self.create_dashboard()
         self.start_monitoring()
@@ -236,90 +237,132 @@ class DashboardPage:
     def start_monitoring(self):
         """Start real-time system monitoring"""
         def monitor_worker():
-            while True:
+            while self.monitoring_active:
                 try:
                     # Update CPU usage
                     cpu_percent = psutil.cpu_percent(interval=1)
-                    self.main_window.root.after(0, lambda: self.update_cpu(cpu_percent))
+                    if self.monitoring_active:
+                        self.main_window.root.after(0, lambda: self.safe_update_cpu(cpu_percent))
                     
                     # Update memory usage
                     memory = psutil.virtual_memory()
-                    self.main_window.root.after(0, lambda: self.update_memory(memory))
+                    if self.monitoring_active:
+                        self.main_window.root.after(0, lambda: self.safe_update_memory(memory))
                     
                     # Update disk usage
                     disk = psutil.disk_usage('C:\\')
-                    self.main_window.root.after(0, lambda: self.update_disk(disk))
+                    if self.monitoring_active:
+                        self.main_window.root.after(0, lambda: self.safe_update_disk(disk))
                     
                     # Update process count
                     process_count = len(psutil.pids())
-                    self.main_window.root.after(0, lambda: self.update_processes(process_count))
+                    if self.monitoring_active:
+                        self.main_window.root.after(0, lambda: self.safe_update_processes(process_count))
                     
                     # Update health score
                     health_score = self.calculate_health_score(cpu_percent, memory.percent, 
                                                              disk.percent)
-                    self.main_window.root.after(0, lambda: self.update_health(health_score))
+                    if self.monitoring_active:
+                        self.main_window.root.after(0, lambda: self.safe_update_health(health_score))
                     
                 except Exception as e:
                     print(f"Monitoring error: {e}")
+                    break
                 
-                time.sleep(5)  # Update every 5 seconds
+                # Sleep in chunks to allow for clean shutdown
+                for _ in range(50):  # 5 seconds total, check every 0.1 seconds
+                    if not self.monitoring_active:
+                        break
+                    time.sleep(0.1)
         
         # Start monitoring in background thread
         threading.Thread(target=monitor_worker, daemon=True).start()
     
-    def update_cpu(self, cpu_percent):
-        """Update CPU display"""
-        self.cpu_usage_bar.set_progress(cpu_percent)
-        self.cpu_text.config(text=f"CPU: {cpu_percent:.1f}%")
-        
-        # Try to get CPU temperature (if available)
+    def safe_update_cpu(self, cpu_percent):
+        """Safely update CPU display"""
         try:
-            temps = psutil.sensors_temperatures()
-            if 'coretemp' in temps:
-                temp = temps['coretemp'][0].current
-                self.cpu_temp_text.config(text=f"Temp: {temp:.1f}°C")
-        except:
-            self.cpu_temp_text.config(text="Temp: N/A")
+            if hasattr(self, 'cpu_usage_bar') and self.cpu_usage_bar.winfo_exists():
+                self.cpu_usage_bar.set_progress(cpu_percent)
+            if hasattr(self, 'cpu_text') and self.cpu_text.winfo_exists():
+                self.cpu_text.config(text=f"CPU: {cpu_percent:.1f}%")
+            
+            # Try to get CPU temperature (if available)
+            try:
+                temps = psutil.sensors_temperatures()
+                if 'coretemp' in temps and hasattr(self, 'cpu_temp_text') and self.cpu_temp_text.winfo_exists():
+                    temp = temps['coretemp'][0].current
+                    self.cpu_temp_text.config(text=f"Temp: {temp:.1f}°C")
+            except:
+                if hasattr(self, 'cpu_temp_text') and self.cpu_temp_text.winfo_exists():
+                    self.cpu_temp_text.config(text="Temp: N/A")
+        except tk.TclError:
+            # Widget was destroyed, ignore update
+            pass
     
-    def update_memory(self, memory):
-        """Update memory display"""
-        self.memory_usage_bar.set_progress(memory.percent)
-        self.memory_text.config(text=f"RAM: {memory.percent:.1f}%")
-        
-        available_gb = memory.available / (1024**3)
-        self.memory_available_text.config(text=f"Available: {available_gb:.1f} GB")
+    def safe_update_memory(self, memory):
+        """Safely update memory display"""
+        try:
+            if hasattr(self, 'memory_usage_bar') and self.memory_usage_bar.winfo_exists():
+                self.memory_usage_bar.set_progress(memory.percent)
+            if hasattr(self, 'memory_text') and self.memory_text.winfo_exists():
+                self.memory_text.config(text=f"RAM: {memory.percent:.1f}%")
+            
+            available_gb = memory.available / (1024**3)
+            if hasattr(self, 'memory_available_text') and self.memory_available_text.winfo_exists():
+                self.memory_available_text.config(text=f"Available: {available_gb:.1f} GB")
+        except tk.TclError:
+            # Widget was destroyed, ignore update
+            pass
     
-    def update_disk(self, disk):
-        """Update disk display"""
-        used_percent = (disk.used / disk.total) * 100
-        self.disk_usage_bar.set_progress(used_percent)
-        self.disk_text.config(text=f"Disk C: {used_percent:.1f}%")
-        
-        free_gb = disk.free / (1024**3)
-        self.disk_free_text.config(text=f"Free: {free_gb:.1f} GB")
+    def safe_update_disk(self, disk):
+        """Safely update disk display"""
+        try:
+            used_percent = (disk.used / disk.total) * 100
+            if hasattr(self, 'disk_usage_bar') and self.disk_usage_bar.winfo_exists():
+                self.disk_usage_bar.set_progress(used_percent)
+            if hasattr(self, 'disk_text') and self.disk_text.winfo_exists():
+                self.disk_text.config(text=f"Disk C: {used_percent:.1f}%")
+            
+            free_gb = disk.free / (1024**3)
+            if hasattr(self, 'disk_free_text') and self.disk_free_text.winfo_exists():
+                self.disk_free_text.config(text=f"Free: {free_gb:.1f} GB")
+        except tk.TclError:
+            # Widget was destroyed, ignore update
+            pass
     
-    def update_processes(self, count):
-        """Update process count"""
-        self.process_count.config(text=str(count))
+    def safe_update_processes(self, count):
+        """Safely update process count"""
+        try:
+            if hasattr(self, 'process_count') and self.process_count.winfo_exists():
+                self.process_count.config(text=str(count))
+        except tk.TclError:
+            # Widget was destroyed, ignore update
+            pass
     
-    def update_health(self, score):
-        """Update system health score"""
-        self.health_score.config(text=str(score))
-        
-        if score >= 90:
-            status_text = "Excellent"
-            status_color = self.colors['success']
-        elif score >= 70:
-            status_text = "Good"
-            status_color = self.colors['accent_primary']
-        elif score >= 50:
-            status_text = "Fair"
-            status_color = self.colors['warning']
-        else:
-            status_text = "Poor"
-            status_color = self.colors['danger']
-        
-        self.health_status.config(text=status_text, fg=status_color)
+    def safe_update_health(self, score):
+        """Safely update system health score"""
+        try:
+            if hasattr(self, 'health_score') and self.health_score.winfo_exists():
+                self.health_score.config(text=str(score))
+            
+            if score >= 90:
+                status_text = "Excellent"
+                status_color = self.colors['success']
+            elif score >= 70:
+                status_text = "Good"
+                status_color = self.colors['accent_primary']
+            elif score >= 50:
+                status_text = "Fair"
+                status_color = self.colors['warning']
+            else:
+                status_text = "Poor"
+                status_color = self.colors['danger']
+            
+            if hasattr(self, 'health_status') and self.health_status.winfo_exists():
+                self.health_status.config(text=status_text, fg=status_color)
+        except tk.TclError:
+            # Widget was destroyed, ignore update
+            pass
     
     def calculate_health_score(self, cpu_percent, memory_percent, disk_percent):
         """Calculate overall system health score"""
@@ -344,3 +387,7 @@ class DashboardPage:
             score -= (disk_percent - 80) * 1.5
         
         return max(0, min(100, int(score)))
+    
+    def cleanup(self):
+        """Cleanup dashboard resources"""
+        self.monitoring_active = False

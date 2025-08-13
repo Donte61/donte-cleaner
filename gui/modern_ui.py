@@ -144,14 +144,14 @@ class AnimatedButton(tk.Canvas):
             return
         
         self.animation_running = True
-        threading.Thread(target=self._hover_animation, daemon=True).start()
+        # Use safe threading approach
+        self.after_idle(self.draw_button)
+        self.after(100, lambda: setattr(self, 'animation_running', False))
     
     def _hover_animation(self):
-        """Hover animation thread"""
-        for i in range(10):
-            self.after(i * 20, self.draw_button)
-            time.sleep(0.02)
-        self.animation_running = False
+        """Hover animation thread - DEPRECATED, use animate_hover instead"""
+        # Removed to prevent thread issues
+        pass
     
     def animate_click(self):
         """Animate click effect"""
@@ -214,13 +214,21 @@ class NeonProgressBar(tk.Canvas):
     
     def set_progress(self, value):
         """Set progress value (0-100)"""
-        self.progress = max(0, min(100, value))
-        self.draw_progress()
-        self.update()  # Force update
+        try:
+            self.progress = max(0, min(100, value))
+            self.draw_progress()
+            self.update_idletasks()  # Safer update
+        except tk.TclError:
+            # Widget was destroyed, ignore update
+            pass
     
     def draw_progress(self):
         """Draw progress bar"""
-        self.delete("progress")
+        try:
+            self.delete("progress")
+        except tk.TclError:
+            # Widget was destroyed, ignore drawing
+            return
         
         if self.progress > 0:
             # Calculate progress width
@@ -319,9 +327,13 @@ class HolographicCard(tk.Canvas):
         """Animate border colors"""
         def update_color():
             if self.animation_active:
-                self.current_color = (self.current_color + 1) % len(self.border_colors)
-                self.draw_card()
-                self.after(500, update_color)
+                try:
+                    self.current_color = (self.current_color + 1) % len(self.border_colors)
+                    self.draw_card()
+                    self.after(500, update_color)
+                except tk.TclError:
+                    # Widget was destroyed, stop animation
+                    self.animation_active = False
         
         update_color()
     
@@ -364,37 +376,41 @@ class ParticleSystem:
         if not self.active:
             return
         
-        self.canvas.delete("particle")
-        width = self.canvas.winfo_width() or 1400
-        height = self.canvas.winfo_height() or 900
-        
-        for particle in self.particles:
-            # Update position
-            particle['x'] += particle['vx']
-            particle['y'] += particle['vy']
+        try:
+            self.canvas.delete("particle")
+            width = self.canvas.winfo_width() or 1400
+            height = self.canvas.winfo_height() or 900
             
-            # Wrap around edges
-            if particle['x'] < 0:
-                particle['x'] = width
-            elif particle['x'] > width:
-                particle['x'] = 0
+            for particle in self.particles:
+                # Update position
+                particle['x'] += particle['vx']
+                particle['y'] += particle['vy']
+                
+                # Wrap around edges
+                if particle['x'] < 0:
+                    particle['x'] = width
+                elif particle['x'] > width:
+                    particle['x'] = 0
+                
+                if particle['y'] < 0:
+                    particle['y'] = height
+                elif particle['y'] > height:
+                    particle['y'] = 0
+                
+                # Draw particle
+                self.canvas.create_oval(
+                    particle['x'], particle['y'],
+                    particle['x'] + particle['size'], 
+                    particle['y'] + particle['size'],
+                    fill=particle['color'], outline="",
+                    tags="particle"
+                )
             
-            if particle['y'] < 0:
-                particle['y'] = height
-            elif particle['y'] > height:
-                particle['y'] = 0
-            
-            # Draw particle
-            self.canvas.create_oval(
-                particle['x'], particle['y'],
-                particle['x'] + particle['size'], 
-                particle['y'] + particle['size'],
-                fill=particle['color'], outline="",
-                tags="particle"
-            )
-        
-        # Schedule next frame
-        self.canvas.after(50, self.animate)
+            # Schedule next frame
+            self.canvas.after(50, self.animate)
+        except tk.TclError:
+            # Canvas was destroyed, stop animation
+            self.active = False
     
     def stop(self):
         """Stop particle animation"""
@@ -474,14 +490,18 @@ class StatusIndicator(tk.Canvas):
     def start_pulse(self):
         """Start pulse animation for active status"""
         def pulse():
-            if self.status == 'active':
-                self.pulse_size += self.pulse_direction
-                if self.pulse_size >= self.max_pulse or self.pulse_size <= self.size // 4:
-                    self.pulse_direction *= -1
+            try:
+                if self.status == 'active':
+                    self.pulse_size += self.pulse_direction
+                    if self.pulse_size >= self.max_pulse or self.pulse_size <= self.size // 4:
+                        self.pulse_direction *= -1
+                    
+                    self.draw_indicator()
                 
-                self.draw_indicator()
-            
-            self.after(100, pulse)
+                self.after(100, pulse)
+            except tk.TclError:
+                # Widget was destroyed, stop animation
+                pass
         
         pulse()
     

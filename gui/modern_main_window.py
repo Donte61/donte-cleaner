@@ -432,19 +432,28 @@ class ModernMainWindow:
                     cpu_percent = psutil.cpu_percent(interval=None)
                     memory_percent = psutil.virtual_memory().percent
                     
-                    # Determine health status
-                    if cpu_percent > 80 or memory_percent > 85:
-                        self.health_indicator.set_status('warning')
-                    elif cpu_percent > 90 or memory_percent > 95:
-                        self.health_indicator.set_status('error')
-                    else:
-                        self.health_indicator.set_status('active')
+                    # Determine health status safely
+                    if hasattr(self, 'health_indicator'):
+                        try:
+                            if cpu_percent > 80 or memory_percent > 85:
+                                self.health_indicator.set_status('warning')
+                            elif cpu_percent > 90 or memory_percent > 95:
+                                self.health_indicator.set_status('error')
+                            else:
+                                self.health_indicator.set_status('active')
+                        except tk.TclError:
+                            # Widget was destroyed, ignore update
+                            pass
                     
                 except Exception as e:
-                    self.logger.error(f"System info update failed: {e}")
+                    print(f"Performance metrics error: {e}")
                 
                 # Schedule next update
-                self.root.after(5000, update)
+                try:
+                    self.root.after(5000, update)
+                except tk.TclError:
+                    # Root was destroyed, stop updates
+                    pass
             
             update()
             
@@ -494,6 +503,13 @@ class ModernMainWindow:
     # Navigation methods
     def clear_content(self):
         """Clear current content"""
+        # Cleanup current page if it has cleanup method
+        if hasattr(self, 'current_page') and hasattr(self.current_page, 'cleanup'):
+            try:
+                self.current_page.cleanup()
+            except:
+                pass
+        
         for widget in self.content_frame.winfo_children():
             widget.destroy()
     

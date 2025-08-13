@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 QR Kod Oluşturucu - DonTe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 QR Kod Oluşturucu</h1>
+            <p>Türkiye'nin en gelişmiş QR kod oluşturma platformu</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="text">📝 Metin</button>
+                    <button class="tab-btn" data-tab="url">🌐 URL</button>
+                    <button class="tab-btn" data-tab="wifi">📶 WiFi</button>
+                    <button class="tab-btn" data-tab="email">📧 Email</button>
+                    <button class="tab-btn" data-tab="sms">💬 SMS</button>
+                    <button class="tab-btn" data-tab="vcard">👤 vCard</button>
+                </div>
+
+                <!-- Text Tab -->
+                <div class="tab-content active" id="text-tab">
+                    <label for="text-input">Metin girin:</label>
+                    <textarea id="text-input" placeholder="QR koda dönüştürmek istediğiniz metni yazın..."></textarea>
+                </div>
+
+                <!-- URL Tab -->
+                <div class="tab-content" id="url-tab">
+                    <label for="url-input">Website URL'si:</label>
+                    <input type="url" id="url-input" placeholder="https://example.com">
+                </div>
+
+                <!-- WiFi Tab -->
+                <div class="tab-content" id="wifi-tab">
+                    <label for="wifi-ssid">WiFi Ağ Adı (SSID):</label>
+                    <input type="text" id="wifi-ssid" placeholder="WiFi ağ adı">
+                    
+                    <label for="wifi-password">Şifre:</label>
+                    <input type="password" id="wifi-password" placeholder="WiFi şifresi">
+                    
+                    <label for="wifi-security">Güvenlik Türü:</label>
+                    <select id="wifi-security">
+                        <option value="WPA">WPA/WPA2</option>
+                        <option value="WEP">WEP</option>
+                        <option value="nopass">Şifresiz</option>
+                    </select>
+                </div>
+
+                <!-- Email Tab -->
+                <div class="tab-content" id="email-tab">
+                    <label for="email-to">Email Adresi:</label>
+                    <input type="email" id="email-to" placeholder="ornek@email.com">
+                    
+                    <label for="email-subject">Konu:</label>
+                    <input type="text" id="email-subject" placeholder="Email konusu">
+                    
+                    <label for="email-body">Mesaj:</label>
+                    <textarea id="email-body" placeholder="Email içeriği..."></textarea>
+                </div>
+
+                <!-- SMS Tab -->
+                <div class="tab-content" id="sms-tab">
+                    <label for="sms-number">Telefon Numarası:</label>
+                    <input type="tel" id="sms-number" placeholder="+90 555 123 45 67">
+                    
+                    <label for="sms-message">SMS Mesajı:</label>
+                    <textarea id="sms-message" placeholder="SMS mesajı..."></textarea>
+                </div>
+
+                <!-- vCard Tab -->
+                <div class="tab-content" id="vcard-tab">
+                    <label for="vcard-name">Ad Soyad:</label>
+                    <input type="text" id="vcard-name" placeholder="Ahmet Yılmaz">
+                    
+                    <label for="vcard-phone">Telefon:</label>
+                    <input type="tel" id="vcard-phone" placeholder="+90 555 123 45 67">
+                    
+                    <label for="vcard-email">Email:</label>
+                    <input type="email" id="vcard-email" placeholder="ahmet@email.com">
+                    
+                    <label for="vcard-organization">Şirket:</label>
+                    <input type="text" id="vcard-organization" placeholder="ABC Şirketi">
+                    
+                    <label for="vcard-website">Website:</label>
+                    <input type="url" id="vcard-website" placeholder="https://website.com">
+                </div>
+
+                <div class="options">
+                    <div class="option-group">
+                        <label for="size-select">QR Kod Boyutu:</label>
+                        <select id="size-select">
+                            <option value="200">Küçük (200x200)</option>
+                            <option value="300" selected>Orta (300x300)</option>
+                            <option value="400">Büyük (400x400)</option>
+                            <option value="500">Çok Büyük (500x500)</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label for="color-select">Renk:</label>
+                        <select id="color-select">
+                            <option value="#000000">Siyah</option>
+                            <option value="#FF0000">Kırmızı</option>
+                            <option value="#0000FF">Mavi</option>
+                            <option value="#008000">Yeşil</option>
+                            <option value="#800080">Mor</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="generate-btn" class="generate-btn">🚀 QR Kod Oluştur</button>
+            </div>
+
+            <div class="output-section">
+                <div class="qr-container">
+                    <div id="qr-placeholder">
+                        <div class="placeholder-content">
+                            <span class="qr-icon">📱</span>
+                            <h3>QR Kodunuz Burada Görünecek</h3>
+                            <p>Sol taraftan bilgileri doldurun ve "QR Kod Oluştur" butonuna tıklayın</p>
+                        </div>
+                    </div>
+                    <canvas id="qr-canvas" style="display: none;"></canvas>
+                </div>
+
+                <div class="download-section" id="download-section" style="display: none;">
+                    <button id="download-btn" class="download-btn">💾 PNG Olarak İndir</button>
+                    <p class="download-info">Yüksek kalitede PNG formatında indirebilirsiniz</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <p>🚀 <strong>QR Kod Oluşturucu</strong> - DonTe tarafından geliştirildi</p>
+                <div class="social-links">
+                    <a href="https://github.com/Donte61" target="_blank">💼 GitHub</a>
+                    <a href="https://discord.gg/yt2zGwtHrb" target="_blank">💬 Discord</a>
+                    <a href="https://buymeacoffee.com/donte61" target="_blank">☕ Buy Me a Coffee</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
